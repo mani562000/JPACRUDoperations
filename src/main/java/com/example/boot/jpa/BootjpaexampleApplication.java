@@ -30,11 +30,11 @@ public class BootjpaexampleApplication {
 //	     user.setGender("Male");
 //	     user.setCity("Gurugram");
 //	     user.setStatus("Single");  
-//       User user1 = userRepository.save(user);
-//       System.out.println(user1.toString());
+//         User user4 = userRepository.save(user);
+//         System.out.println(user4.toString());
 //	  
-	   
-	     //Insert operation: (Multiple Instances)
+//	   
+//	     //Insert operation: (Multiple Instances)
 //	     User user1 = new User();
 //	
 //	     user1.setFirstName("Raja");
@@ -116,17 +116,35 @@ public class BootjpaexampleApplication {
          //itr.forEach(user->System.out.println(user));
          
          //Delete Operation:(one user)
-	     try {
-          userRepository.deleteById(12);
-          System.out.println("Succesfully deleted");
-	     }catch(Exception e)
-	     {
-	    	 e.printStackTrace();
-	     }
-         //Delete Operation: (all users)
-	     Iterable<User> allUsers = userRepository.findAll();
-	     userRepository.deleteAll(allUsers);
-	
+//	     try {
+//          userRepository.deleteById(12);
+//          System.out.println("Succesfully deleted");
+//	     }catch(Exception e)
+//	     {
+//	    	 e.printStackTrace();
+//	     }
+//         //Delete Operation: (all users)
+//	     Iterable<User> allUsers = userRepository.findAll();
+//	     userRepository.deleteAll(allUsers);
+//	
+         List<User>users= userRepository.findByFirstname("Rajesh");
+          
+         users.forEach(e->System.out.println(e));
+         
+         List<User>allUser = userRepository.getAllUsers();
+         
+         allUser.forEach(e->System.out.println(e));
+         
+         List<User>userByFnameAndCity = userRepository.findByFirstnameAnaCity("Rajesh","Pune");
+         
+         userByFnameAndCity.forEach(e->{System.out.println(e);});
+         
+         List<User> users1 =userRepository.getUsers();
+         
+         users1.forEach(e->{
+        	 System.out.println(e);
+         });
+         
 	}
 	
 
